@@ -313,7 +313,7 @@
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="flex flex-col md:flex-row justify-center gap-8">
-                <div class="bg-white card p-8 md:p-12 w-full md:w-[48%]">
+                <!-- <div class="bg-white card p-8 md:p-12 w-full md:w-[48%]">
                     <form action="https://formspree.io/f/samyaknaranje@gmail.com" method="POST" class="contact-form">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
@@ -335,7 +335,50 @@
                             </button>
                         </div>
                     </form>
-                </div>
+                </div> -->
+                <div class="bg-white card p-8 md:p-12 w-full md:w-[48%]">
+    <form id="whatsappForm" class="contact-form">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+                <label for="name" class="block text-gray-700 font-medium mb-1">Name</label>
+                <input type="text" id="name" name="name" class="w-full rounded-lg" required>
+            </div>
+            <div>
+                <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
+                <input type="email" id="email" name="email" class="w-full rounded-lg" required>
+            </div>
+        </div>
+        <div class="mb-6">
+            <label for="message" class="block text-gray-700 font-medium mb-1">Message</label>
+            <textarea id="message" name="message" rows="5" class="w-full rounded-lg" required></textarea>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="bg-indigo-600 text-white font-bold py-3 px-10 rounded-full shadow-lg hover:bg-indigo-700 transition-all duration-300">
+                Send Message on WhatsApp
+            </button>
+        </div>
+    </form>
+</div>
+
+<script>
+document.getElementById("whatsappForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // stop default form submit
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    // Create WhatsApp message
+    let whatsappMessage = `Hello, I want to contact you.%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}`;
+
+    // Redirect to WhatsApp chat
+    let phoneNumber = "918999463721"; // Your WhatsApp number (with country code)
+    let url = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+    window.open(url, "_blank"); // Open WhatsApp in new tab
+});
+</script>
+
                 
                 <div class="bg-white card p-8 md:p-12 w-full md:w-[48%]">
                     <h3 class="text-2xl font-bold text-center mb-4">My Location</h3>
@@ -361,7 +404,7 @@
             <p>© 2025 Samyak Naranje. All rights reserved.</p>
             <div class="flex flex-col md:flex-row justify-center items-center space-x-0 md:space-x-4 mt-4 text-sm">
                 <p>Email: <a href="mailto:samyaknaranje@gmail.com" class="hover:underline">samyaknaranje@gmail.com</a></p>
-                <p class="mt-2 md:mt-0">Mobile: +91 8999463721</p>
+                <p class="mt-2 md:mt-0">Mobile: +91 8999463721, 9028810377</p>
             </div>
             <div class="flex justify-center space-x-4 mt-4 text-2xl">
                 <a href="https://github.com/Samyak-Naranje" class="hover:text-indigo-400 transition-colors" target="_blank" rel="noopener noreferrer">
@@ -374,6 +417,12 @@
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.068 1.645.068 4.854 0 3.205-.01 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.068-4.854.068-3.204 0-3.584-.01-4.849-.069-3.225-.148-4.77-1.664-4.919-4.919-.058-1.265-.068-1.644-.068-4.854 0-3.205.01-3.584.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.265-.058 1.644-.068 4.854-.068zM12 4.545a7.455 7.455 0 100 14.91 7.455 7.455 0 000-14.91zM12 7.025a4.975 4.975 0 110 9.95 4.975 4.975 0 010-9.95zM17.5 5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" />
                     </svg>
                 </a>
+                <!-- WhatsApp -->
+    <a href="https://wa.me/918999463721" class="hover:text-green-500 transition-colors" target="_blank" rel="noopener noreferrer">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.52 3.48A11.82 11.82 0 0012 0C5.37 0 .02 5.37.02 12a11.9 11.9 0 001.64 6.01L0 24l6.18-1.63A11.92 11.92 0 0012 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.18-3.48-8.52zM12 21.5c-1.95 0-3.83-.52-5.48-1.5l-.39-.23-3.67.97.98-3.58-.25-.37a9.52 9.52 0 01-1.52-5.3c0-5.27 4.27-9.54 9.54-9.54 2.55 0 4.95.99 6.75 2.79 1.8 1.8 2.79 4.2 2.79 6.75 0 5.27-4.27 9.54-9.54 9.54zm5.31-7.19c-.29-.15-1.71-.85-1.98-.95-.27-.1-.47-.15-.67.15-.2.29-.77.95-.95 1.14-.18.19-.35.21-.64.06-.29-.15-1.23-.45-2.34-1.44-.86-.76-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.6.13-.13.29-.35.43-.53.14-.18.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.36-.01-.55-.01s-.51.07-.77.36c-.26.29-1.01.98-1.01 2.39 0 1.41 1.03 2.77 1.18 2.96.15.19 2.03 3.11 4.92 4.37.69.3 1.23.48 1.65.62.69.22 1.32.19 1.81.12.55-.08 1.71-.7 1.95-1.38.24-.68.24-1.27.17-1.38-.07-.11-.26-.18-.55-.33z"/>
+        </svg>
+    </a>
             </div>
         </div>
     </footer>
