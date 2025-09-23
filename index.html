@@ -1,484 +1,569 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-            color: #1f2937;
-            scroll-behavior: smooth;
-        }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 2rem 1rem;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            width: 60px;
-            height: 4px;
-            background-color: #4f46e5;
-            border-radius: 9999px;
-            transform: translateX(-50%);
-        }
-        .nav-link:hover {
-            color: #4f46e5;
-            transition: color 0.3s;
-        }
-        .card {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out, background-color 0.5s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        
-        /* Skills card hover effect */
-        #skills .card:hover {
-            background-color: #e5e7eb;
-        }
-        
-        .contact-form input,
-        .contact-form textarea {
-            border: 1px solid #d1d5db;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            width: 100%;
-            transition: border-color 0.3s;
-        }
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: #4f46e5;
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
-        }
-        .project-card {
-            background-color: #1a202c;
-            color: white;
-        }
-        .project-card .text-gray-900 {
-            color: white;
-        }
-        .project-card .text-gray-600 {
-            color: #d1d5db;
-        }
-        .project-card img {
-            object-fit: cover;
-            height: 200px;
-        }
-        
-        /* Hero Section Animation Styles */
-        .hero-section {
-            position: relative;
-            overflow: hidden;
-        }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Samyak Naranje | Freelance Web Developer & UI/UX Designer</title>
+	<meta name="description" content="Freelance Web Developer specializing in building modern, responsive websites for businesses and startups. Proficient in React, Node.js, Spring Boot, and UI/UX design.">
+	<meta name="keywords" content="Freelance Web Developer, Front-end Developer, Full-stack, React, Node.js, responsive websites, UI/UX, SEO Optimization, Portfolio Websites, E-commerce">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+		body {
+			font-family: 'Inter', sans-serif;
+			background-color: #0d1117;
+			color: #e2e8f0;
+			scroll-behavior: smooth;
+			overflow-x: hidden;
+		}
+		.container {
+			max-width: 1200px;
+			margin: auto;
+			padding: 2rem 1rem;
+		}
+		.section-title {
+			text-align: center;
+			font-size: 2.5rem;
+			font-weight: 700;
+			color: #e2e8f0;
+			margin-bottom: 2rem;
+			position: relative;
+			display: inline-block;
+			padding-bottom: 0.5rem;
+		}
+		.section-title::after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			width: 60px;
+			height: 4px;
+			background-color: #00bcd4;
+			border-radius: 9999px;
+			transform: translateX(-50%);
+		}
+		.nav-link:hover {
+			color: #00bcd4;
+			transition: color 0.3s;
+		}
+		.card {
+			background-color: #161b22;
+			padding: 2rem;
+			border-radius: 1rem;
+			border: 1px solid #30363d;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+			transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s;
+		}
+		.card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 0 15px #00bcd4, 0 0 5px #00bcd4;
+			border-color: #00bcd4;
+		}
+		
+		.contact-form input,
+		.contact-form textarea {
+			background-color: #0d1117;
+			border: 1px solid #30363d;
+			padding: 0.75rem;
+			border-radius: 0.5rem;
+			width: 100%;
+			color: #e2e8f0;
+			transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+		}
+		.contact-form input:focus,
+		.contact-form textarea:focus {
+			outline: none;
+			border-color: #00bcd4;
+			box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
+		}
+		.contact-form input:hover,
+		.contact-form textarea:hover {
+			border-color: #00bcd4;
+			box-shadow: 0 0 8px rgba(0, 188, 212, 0.4);
+			transform: scale(1.02);
+		}
 
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            background: linear-gradient(45deg, #1f2937, #4f46e5, #8b5cf6, #374151, #4f46e5, #1f2937);
-            background-size: 600% 600%;
-            animation: backgroundChange 5s ease infinite;
-        }
+		/* Hero Section Animated Background */
+		.hero-section {
+			background-color: #0d1117;
+			position: relative;
+			overflow: hidden;
+			z-index: 1;
+		}
+		.hero-section::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: radial-gradient(circle at 10% 20%, #00bcd422 0%, transparent 50%),
+							  radial-gradient(circle at 90% 80%, #00bcd422 0%, transparent 50%);
+			background-size: 50% 50%;
+			background-repeat: no-repeat;
+			opacity: 0.2;
+			animation: move-bg 15s linear infinite;
+			z-index: -1;
+		}
+		@keyframes move-bg {
+			from {
+				transform: translate(0, 0);
+			}
+			to {
+				transform: translate(-100px, -100px);
+			}
+		}
 
-        .hero-section-content {
-            position: relative;
-            z-index: 2;
-        }
+		/* Stars Animation */
+		.stars {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -2;
+		}
+		.star {
+			position: absolute;
+			background-color: #e2e8f0;
+			border-radius: 50%;
+			opacity: 0;
+			animation: twinkle linear infinite;
+		}
+		@keyframes twinkle {
+			0%, 100% { opacity: 0; }
+			50% { opacity: 1; }
+		}
+		
+		/* General Scroll Animation Classes */
+		.animate-on-scroll {
+			opacity: 0;
+			transform: translateY(20px);
+			transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+		}
+		.animate-on-scroll.is-visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
 
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0;
-            animation: twinkle 1.5s linear infinite;
-        }
-
-        @keyframes backgroundChange {
-            0% {
-                background-position: 0% 50%;
-            }
-            25% {
-                background-position: 50% 100%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            75% {
-                background-position: 50% 0%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; transform: scale(0.5); }
-            50% { opacity: 1; transform: scale(1); }
-        }
-
-        /* FIX: Popup Modal Styles */
-        #thankYouPopup {
-            position: fixed; /* Ensures it's positioned relative to the viewport */
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-            z-index: 9999; /* A very high z-index to be on top of everything */
-        }
-        #thankYouPopup.hidden {
-            display: none;
-        }
-
-    </style>
+		/* Glowing Button Effect */
+		.glowing-btn {
+			position: relative;
+			overflow: hidden;
+			border: 2px solid #00bcd4;
+			transition: all 0.3s ease-in-out;
+		}
+		.glowing-btn::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 300%;
+			height: 300%;
+			background: rgba(0, 188, 212, 0.3);
+			transition: all 0.5s ease-in-out;
+			transform: translate(-50%, -50%) rotate(45deg);
+			opacity: 0;
+		}
+		.glowing-btn:hover::before {
+			transform: translate(-50%, -50%) rotate(0deg);
+			opacity: 1;
+		}
+	</style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-950 text-gray-200">
 
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container flex justify-between items-center py-4">
-            <div class="text-2xl font-bold text-indigo-600">Samyak Naranje</div>
-            <ul class="flex space-x-6">
-                <li><a href="#about" class="nav-link text-gray-600 hover:text-indigo-600 transition-colors">About</a></li>
-                <li><a href="#skills" class="nav-link text-gray-600 hover:text-indigo-600 transition-colors">Skills</a></li>
-                <li><a href="#projects" class="nav-link text-gray-600 hover:text-indigo-600 transition-colors">Projects</a></li>
-                <li><a href="#contact" class="nav-link text-gray-600 hover:text-indigo-600 transition-colors">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+	<header class="bg-gray-800 shadow-md sticky top-0 z-50">
+		<nav class="container flex justify-between items-center py-4">
+			<div class="text-2xl font-bold text-cyan-400">Samyak Naranje</div>
+			<ul class="flex space-x-6">
+				<li><a href="#about" class="nav-link text-gray-400 hover:text-cyan-400 transition-colors">About</a></li>
+				<li><a href="#skills" class="nav-link text-gray-400 hover:text-cyan-400 transition-colors">Skills</a></li>
+				<li><a href="#projects" class="nav-link text-gray-400 hover:text-cyan-400 transition-colors">Projects</a></li>
+				<li><a href="#contact" class="nav-link text-gray-400 hover:text-cyan-400 transition-colors">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
 
-    <section class="hero-section text-white py-20 md:py-32 rounded-b-3xl">
-        <div class="stars"></div>
-        <div class="hero-section-content container flex flex-col md:flex-row items-center justify-between text-center md:text-left">
-            <div class="md:w-1/2 mb-8 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
-                    Hello, I'm <span class="text-yellow-300">Samyak Naranje</span>
-                </h1>
-                <p class="text-xl md:text-2xl font-light mb-6">
-                    A passionate web developer specializing in creating beautiful and functional web applications.
-                </p>
-                <a href="#projects" class="inline-block bg-white text-indigo-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-200 transition-all duration-300">
-                    View My Work
-                </a>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <img src="./SamyakPhoto.jpg" alt="Profile Picture" class="rounded-full shadow-xl w-60 h-60 md:w-80 md:h-80 border-4 border-white">
-            </div>
-        </div>
-    </section>
+	<section class="hero-section text-gray-200 py-20 md:py-32 rounded-b-3xl">
+		<div class="stars"></div>
+		
+		<div class="hero-section-content container flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+			<div class="md:w-1/2 mb-8 md:mb-0 animate-on-scroll">
+				<h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-white">
+					I help businesses and startups build fast, modern, and responsive websites.
+				</h1>
+				<p class="text-xl md:text-2xl font-light mb-6 text-cyan-400">
+					Software Development | Java | Golang | React | Android | UI/UX Design
+				</p>
+				<div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+					<a href="#contact" class="inline-block bg-cyan-600 text-white font-bold py-3 px-8 rounded-full shadow-lg glowing-btn hover:bg-cyan-700 transition-all duration-300">
+						Let's Build Your Website
+					</a>
+					<a href="#projects" class="inline-block bg-transparent text-cyan-400 font-bold py-3 px-8 rounded-full border-2 border-cyan-400 glowing-btn hover:text-white hover:bg-cyan-600 transition-all duration-300">
+						See My Projects
+					</a>
+				</div>
+			</div>
+			<div class="md:w-1/2 flex justify-center animate-on-scroll">
+				<img src="./SamyakPhoto.jpg" alt="Samyak Naranje - Freelance Web Developer" class="rounded-full shadow-xl w-60 h-60 md:w-80 md:h-80 border-4 border-cyan-400">
+			</div>
+		</div>
+	</section>
 
-    <section id="about" class="py-16 md:py-24">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="bg-white card text-center md:text-left p-8 md:p-12">
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    I am a highly motivated and results-oriented web developer with a strong foundation in modern web technologies. I have a passion for building intuitive, dynamic, and visually appealing user experiences. My skills include front-end and back-end development, with a focus on creating efficient and scalable solutions. When I'm not coding, I enjoy learning new technologies, hiking, and contributing to open-source projects.
-                </p>
-            </div>
-        </div>
-    </section>
+	<section id="about" class="py-16 md:py-24">
+		<div class="container animate-on-scroll">
+			<h2 class="section-title">About Me</h2>
+			<div class="card text-center md:text-left p-8 md:p-12">
+				<p class="text-lg text-gray-300 leading-relaxed mb-4">
+					I’m a freelance Software developer with expertise in building modern, responsive, and high-performance websites that help businesses and individuals grow their online presence. With strong experience in front-end and back-end development, I specialize in creating solutions that are not only visually appealing but also scalable, efficient, and user-friendly.
+				</p>
+				<p class="text-lg text-gray-300 leading-relaxed mb-4">
+					My core skills include Java, Golang, React, JavaScript, Node.js, HTML/CSS, APIs, and database management, along with experience in UI/UX design and SEO-friendly development. I’ve worked on projects ranging from portfolio websites and business landing pages to full-stack web applications.
+				</p>
+				<p class="text-lg text-gray-300 leading-relaxed">
+					Beyond coding, I enjoy exploring new technologies, contributing to open-source projects, and solving real-world business problems through technology. My mission is simple: deliver clean, functional, and impactful web solutions that bring ideas to life.
+				</p>
+			</div>
+		</div>
+	</section>
 
-    <section id="skills" class="py-16 md:py-24 bg-gray-200">
-        <div class="container">
-            <h2 class="section-title">My Skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://cdn.worldvectorlogo.com/logos/java-4.svg" alt="Java Logo" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">Java</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://cdn.worldvectorlogo.com/logos/go-6.svg" alt="Golang Logo" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">Golang</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://cdn.worldvectorlogo.com/logos/react-1.svg" alt="React.js Logo" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">React.js</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://cdn.worldvectorlogo.com/logos/spring-3.svg" alt="Spring Boot Logo" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">Spring Boot</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://placehold.co/48x48/6366f1/ffffff?text=GIN" alt="GIN Logo" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">GIN</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://placehold.co/48x48/6366f1/ffffff?text=Go" alt="GoRoutine Icon" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">GoRoutine</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://cdn.worldvectorlogo.com/logos/docker-4.svg" alt="Docker Logo" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">Docker</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://www.svgrepo.com/show/448208/database.svg" alt="SQL Logo" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">SQL</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" alt="HTML Logo" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">HTML</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://cdn.worldvectorlogo.com/logos/css-3.svg" alt="CSS Logo" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">CSS</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://cdn.worldvectorlogo.com/logos/bootstrap-5-1.svg" alt="Bootstrap Logo" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">Bootstrap</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://cdn.worldvectorlogo.com/logos/github-icon-2.svg" alt="GITHUB Logo" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">GITHUB</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://www.svgrepo.com/show/210813/microservices.svg" alt="Microservices Icon" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">Microservices</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://placehold.co/48x48/6366f1/ffffff?text=DS" alt="Data Structures Icon" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">Data Structures</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://cdn.worldvectorlogo.com/logos/javascript-1.svg" alt="JavaScript Logo" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">JavaScript</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://cdn.worldvectorlogo.com/logos/java-4.svg" alt="JDK 8 Icon" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">JDK 8</h3>
-                </div>
-                <div class="card text-center p-6 flex flex-col items-center">
-                    <img src="https://placehold.co/48x48/6366f1/ffffff?text=OOP" alt="OOPS Icon" class="w-12 h-12 mb-2">
-                    <h3 class="font-semibold text-xl mb-1">OOPS</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+	<section id="why-me" class="py-16 md:py-24 bg-gray-800">
+		<div class="container animate-on-scroll">
+			<h2 class="section-title">Why Choose Me?</h2>
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+				<div class="card p-6">
+					<h3 class="text-xl font-bold mb-2 text-cyan-400">Quick Delivery</h3>
+					<p class="text-gray-400">I deliver high-quality work on time, every time, ensuring your project meets its deadline.</p>
+				</div>
+				<div class="card p-6">
+					<h3 class="text-xl font-bold mb-2 text-cyan-400">Clean Code</h3>
+					<p class="text-gray-400">My code is well-structured, easy to maintain, and built for future scalability.</p>
+				</div>
+				<div class="card p-6">
+					<h3 class="text-xl font-bold mb-2 text-cyan-400">Client Satisfaction</h3>
+					<p class="text-gray-400">Your vision is my priority. I work closely with you to ensure the final product exceeds your expectations.</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <section id="projects" class="py-16 md:py-24">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card project-card">
-                    <img src="https://placehold.co/600x400/818cf8/ffffff?text=API+Integration" alt="Project 1: API Integration" class="w-full rounded-t-lg mb-4">
-                    <h3 class="font-bold text-2xl text-gray-900 mb-2">API Integration with Spring Boot</h3>
-                    <p class="text-gray-600 mb-4">Developed a robust backend system using **Java Spring Boot** to handle secure API integrations. This project demonstrates proficiency in building **RESTful APIs**, managing data from external services, and implementing a microservices architecture for scalability.</p>
-                    <a href="https://github.com/Samyak-Naranje" class="inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-full text-sm hover:bg-indigo-700 transition-colors">
-                        View on GitHub
-                    </a>
-                </div>
-                <div class="card project-card">
-                    <img src="https://placehold.co/600x400/6366f1/ffffff?text=E-commerce" alt="Full Stack E-commerce Website" class="w-full rounded-t-lg mb-4">
-                    <h3 class="font-bold text-2xl text-gray-900 mb-2">Full Stack E-commerce Website</h3>
-                    <p class="text-gray-600 mb-4">A complete e-commerce solution with a modern front end and a robust back end. Key features include **user authentication**, a dynamic **product catalog**, a **shopping cart** system, and secure payment processing. Built with modern web technologies for a seamless user experience.</p>
-                    <a href="#" class="inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-full text-sm hover:bg-indigo-700 transition-colors">
-                        View Project
-                    </a>
-                </div>
-                <div class="card project-card">
-                    <img src="https://placehold.co/600x400/4f46e5/ffffff?text=Custom+Software" alt="Custom Software Development" class="w-full rounded-t-lg mb-4">
-                    <h3 class="font-bold text-2xl text-gray-900 mb-2">Custom Software Development with Service</h3>
-                    <p class="text-gray-600 mb-4">
-                        A project focused on building **tailored software solutions** to meet specific client needs. This involves the full software development life cycle, from requirements gathering and design to implementation, testing, and deployment. The solution provides a dedicated service to ensure the software is reliable, scalable, and fully aligned with the client's business objectives.
-                    </p>
-                    <a href="#" class="inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-full text-sm hover:bg-indigo-700 transition-colors">
-                        View Project
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+	<section id="skills" class="py-16 md:py-24">
+		<div class="container animate-on-scroll">
+			<h2 class="section-title">My Skills & Expertise</h2>
+			<div class="card p-8 mb-8">
+				<h3 class="text-2xl font-bold mb-4">Technologies & Languages</h3>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+					<div class="p-4 flex flex-col items-center">
+						<img src="https://cdn.worldvectorlogo.com/logos/java-4.svg" alt="Java Logo" class="w-12 h-12 mb-2 filter invert">
+						<h4 class="font-semibold text-gray-300">Java ⭐⭐⭐⭐⭐</h4>
+					</div>
+					<div class="p-4 flex flex-col items-center">
+						<img src="https://cdn.worldvectorlogo.com/logos/go-6.svg" alt="Golang Logo" class="w-12 h-12 mb-2 filter invert">
+						<h4 class="font-semibold text-gray-300">Golang ⭐⭐⭐⭐⭐</h4>
+					</div>
+					<div class="p-4 flex flex-col items-center">
+						<img src="https://cdn.worldvectorlogo.com/logos/react-1.svg" alt="React.js Logo" class="w-12 h-12 mb-2">
+						<h4 class="font-semibold text-gray-300">React.js ⭐⭐⭐⭐⭐</h4>
+					</div>
+					<div class="p-4 flex flex-col items-center">
+						<img src="https://cdn.worldvectorlogo.com/logos/spring-3.svg" alt="Spring Boot Logo" class="w-12 h-12 mb-2">
+						<h4 class="font-semibold text-gray-300">Spring Boot ⭐⭐⭐⭐⭐</h4>
+					</div>
+					<div class="p-4 flex flex-col items-center">
+						<img src="https://cdn.worldvectorlogo.com/logos/javascript-1.svg" alt="JavaScript Logo" class="w-12 h-12 mb-2">
+						<h4 class="font-semibold text-gray-300">JavaScript ⭐⭐⭐⭐⭐</h4>
+					</div>
+					<div class="p-4 flex flex-col items-center">
+						<img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" alt="HTML Logo" class="w-12 h-12 mb-2">
+						<h4 class="font-semibold text-gray-300">HTML5 ⭐⭐⭐⭐⭐</h4>
+					</div>
+					<div class="p-4 flex flex-col items-center">
+						<img src="https://cdn.worldvectorlogo.com/logos/css-3.svg" alt="CSS Logo" class="w-12 h-12 mb-2">
+						<h4 class="font-semibold text-gray-300">CSS3 ⭐⭐⭐⭐⭐</h4>
+					</div>
+					<div class="p-4 flex flex-col items-center">
+						<img src="https://placehold.co/48x48/6366f1/ffffff?text=Node" alt="Node.js Logo" class="w-12 h-12 mb-2 filter invert">
+						<h4 class="font-semibold text-gray-300">Node.js ⭐⭐⭐⭐⭐</h4>
+					</div>
+				</div>
+			</div>
+			<div class="card p-8">
+				<h3 class="text-2xl font-bold mb-4">Tools & Freelance Skills</h3>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+					<div class="p-4 flex flex-col items-center">
+						<img src="https://cdn.worldvectorlogo.com/logos/github-icon-2.svg" alt="GitHub Logo" class="w-12 h-12 mb-2 filter invert">
+						<h4 class="font-semibold text-gray-300">Git/GitHub</h4>
+						<p class="text-sm text-gray-500">Version Control</p>
+					</div>
+					<div class="p-4 flex flex-col items-center">
+						<img src="https://cdn.worldvectorlogo.com/logos/docker-4.svg" alt="Docker Logo" class="w-12 h-12 mb-2">
+						<h4 class="font-semibold text-gray-300">Docker</h4>
+						<p class="text-sm text-gray-500">Containerization</p>
+					</div>
+					<div class="p-4 flex flex-col items-center">
+						<img src="https://www.svgrepo.com/show/448208/database.svg" alt="SQL Logo" class="w-12 h-12 mb-2 filter invert">
+						<h4 class="font-semibold text-gray-300">SQL</h4>
+						<p class="text-sm text-gray-500">Database Management</p>
+					</div>
+					<div class="p-4 flex flex-col items-center">
+						<img src="https://www.svgrepo.com/show/210813/microservices.svg" alt="Microservices Icon" class="w-12 h-12 mb-2 filter invert">
+						<h4 class="font-semibold text-gray-300">Microservices</h4>
+						<p class="text-sm text-gray-500">Architecture</p>
+					</div>
+					<div class="p-4 flex flex-col items-center">
+						<img src="https://placehold.co/48x48/e5e7eb/6366f1?text=SEO" alt="SEO Optimization Icon" class="w-12 h-12 mb-2 filter invert">
+						<h4 class="font-semibold text-gray-300">SEO Optimization</h4>
+						<p class="text-sm text-gray-500">Web Ranking</p>
+					</div>
+					<div class="p-4 flex flex-col items-center">
+						<img src="https://placehold.co/48x48/e5e7eb/6366f1?text=UI" alt="Responsive Design Icon" class="w-12 h-12 mb-2 filter invert">
+						<h4 class="font-semibold text-gray-300">Responsive Design</h4>
+						<p class="text-sm text-gray-500">Mobile-First</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <section id="contact" class="py-16 md:py-24 bg-gray-200">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="flex flex-col md:flex-row justify-center gap-8">
-                <div class="bg-white card p-8 md:p-12 w-full md:w-[48%]">
-                    <form id="whatsappForm" class="contact-form">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                            <div>
-                                <label for="name" class="block text-gray-700 font-medium mb-1">Name</label>
-                                <input type="text" id="name" name="name" class="w-full rounded-lg" required>
-                            </div>
-                            <div>
-                                <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
-                                <input type="email" id="email" name="email" class="w-full rounded-lg" required>
-                            </div>
-                        </div>
-                        <div class="mb-6">
-                            <label for="mobile" class="block text-gray-700 font-medium mb-1">Mobile Number</label>
-                            <input type="tel" id="mobile" name="mobile" class="w-full rounded-lg" pattern="[0-9]{10}" maxlength="10" required>
-                            <small class="text-gray-500">Enter 10-digit mobile number</small>
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-medium mb-1">Message</label>
-                            <textarea id="message" name="message" rows="5" class="w-full rounded-lg" required></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="bg-indigo-600 text-white font-bold py-3 px-10 rounded-full shadow-lg hover:bg-indigo-700 transition-all duration-300">
-                                Send Message on WhatsApp
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div class="bg-white card p-8 md:p-12 w-full md:w-[48%]">
-                    <h3 class="text-2xl font-bold text-center mb-4">My Location</h3>
-                    <div class="relative w-full h-80 rounded-lg overflow-hidden">
-                        <iframe 
-                            src="https://maps.google.com/maps?q=20.737135258355508, 78.57982440851302&z=15&output=embed" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="My Location on Google Maps">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<section id="projects" class="py-16 md:py-24 bg-gray-800">
+		<div class="container animate-on-scroll">
+			<h2 class="section-title">My Projects</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div class="card project-card">
+					<img src="https://placehold.co/600x400/9ca3af/ffffff?text=API+Integration" alt="Project 1: API Integration" class="w-full rounded-t-lg mb-4 h-52 object-cover">
+					<h3 class="font-bold text-2xl mb-2 text-white">RESTful API Backend</h3>
+					<p class="text-gray-400 mb-2">Developed a secure and scalable backend system for handling API integrations.</p>
+					<p class="text-gray-300 font-semibold mb-4">Tech Stack: Java, Spring Boot, Microservices</p>
+					<div class="flex flex-wrap gap-2">
+						<a href="https://github.com/Samyak-Naranje" target="_blank" class="inline-block bg-cyan-600 text-white font-semibold py-2 px-4 rounded-full text-sm glowing-btn hover:bg-cyan-700 transition-colors">
+							<span role="img" aria-label="GitHub">🔗</span> GitHub Code
+						</a>
+						<a href="#" target="_blank" class="inline-block bg-transparent text-gray-300 font-semibold py-2 px-4 rounded-full border border-gray-500 text-sm hover:border-cyan-400 hover:text-cyan-400 transition-colors">
+							<span role="img" aria-label="Demo">▶️</span> Live Demo
+						</a>
+					</div>
+				</div>
+				<div class="card project-card">
+					<img src="https://placehold.co/600x400/9ca3af/ffffff?text=E-commerce" alt="Full Stack E-commerce Website" class="w-full rounded-t-lg mb-4 h-52 object-cover">
+					<h3 class="font-bold text-2xl mb-2 text-white">Full Stack E-commerce Website</h3>
+					<p class="text-gray-400 mb-2">A complete e-commerce solution with user authentication, product catalog, and secure checkout.</p>
+					<p class="text-gray-300 font-semibold mb-4">Tech Stack: React, Node.js, Express, MongoDB</p>
+					<div class="flex flex-wrap gap-2">
+						<a href="#" target="_blank" class="inline-block bg-cyan-600 text-white font-semibold py-2 px-4 rounded-full text-sm glowing-btn hover:bg-cyan-700 transition-colors">
+							<span role="img" aria-label="GitHub">🔗</span> GitHub Code
+						</a>
+						<a href="#" target="_blank" class="inline-block bg-transparent text-gray-300 font-semibold py-2 px-4 rounded-full border border-gray-500 text-sm hover:border-cyan-400 hover:text-cyan-400 transition-colors">
+							<span role="img" aria-label="Demo">▶️</span> Live Demo
+						</a>
+					</div>
+				</div>
+				<div class="card project-card">
+					<img src="https://placehold.co/600x400/9ca3af/ffffff?text=Custom+Software" alt="Custom Software Development" class="w-full rounded-t-lg mb-4 h-52 object-cover">
+					<h3 class="font-bold text-2xl mb-2 text-white">Custom Software Solution</h3>
+					<p class="text-gray-400 mb-2">Tailored software solution built to meet specific client needs with a focus on reliability and scalability.</p>
+					<p class="text-gray-300 font-semibold mb-4">Tech Stack: Golang, Gin, SQL, Docker</p>
+					<div class="flex flex-wrap gap-2">
+						<a href="#" target="_blank" class="inline-block bg-cyan-600 text-white font-semibold py-2 px-4 rounded-full text-sm glowing-btn hover:bg-cyan-700 transition-colors">
+							<span role="img" aria-label="GitHub">🔗</span> GitHub Code
+						</a>
+						<a href="#" target="_blank" class="inline-block bg-transparent text-gray-300 font-semibold py-2 px-4 rounded-full border border-gray-500 text-sm hover:border-cyan-400 hover:text-cyan-400 transition-colors">
+							<span role="img" aria-label="Demo">▶️</span> Live Demo
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <footer class="bg-gray-900 text-white py-8 rounded-t-3xl">
-        <div class="container text-center">
-            <p>© 2025 Samyak Naranje. All rights reserved.</p>
-            <div class="flex flex-col md:flex-row justify-center items-center space-x-0 md:space-x-4 mt-4 text-sm">
-                <p>Email: <a href="mailto:samyaknaranje@gmail.com" class="hover:underline">samyaknaranje@gmail.com</a></p>
-                <p class="mt-2 md:mt-0">Mobile: +91 8999463721, 9028810377</p>
-            </div>
-            <div class="flex justify-center space-x-4 mt-4 text-2xl">
-                <a href="https://github.com/Samyak-Naranje" class="hover:text-indigo-400 transition-colors" target="_blank" rel="noopener noreferrer">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.417 2.865 8.165 6.845 9.5.5.092.682-.217.682-.483 0-.237-.008-.88-.013-1.748-2.782.605-3.368-1.34-3.368-1.34-.455-1.156-1.11-1.46-1.11-1.46-.908-.62.069-.608.069-.608 1.004.072 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.832.092-.644.35-1.087.636-1.337-2.22-.253-4.555-1.113-4.555-4.954 0-1.091.39-1.984 1.03-2.682-.103-.253-.448-1.272.097-2.65 0 0 .84-.27 2.75 1.025.798-.222 1.637-.333 2.475-.337.838.004 1.677.115 2.475.337 1.909-1.296 2.747-1.025 2.747-1.025.546 1.378.202 2.397.097 2.65.64.698 1.028 1.591 1.028 2.682 0 3.85-2.339 4.697-4.568 4.945.359.309.678.92.678 1.855 0 1.337-.012 2.417-.012 2.745 0 .267.18.577.688.483C21.135 20.176 24 16.427 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd" />
-                    </svg>
-                </a>
-                <a href="https://www.instagram.com/samyak.naranje/" class="hover:text-indigo-400 transition-colors" target="_blank" rel="noopener noreferrer">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.068 1.645.068 4.854 0 3.205-.01 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.068-4.854.068-3.204 0-3.584-.01-4.849-.069-3.225-.148-4.77-1.664-4.919-4.919-.058-1.265-.068-1.644-.068-4.854 0-3.205.01-3.584.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.265-.058 1.644-.068 4.854-.068zM12 4.545a7.455 7.455 0 100 14.91 7.455 7.455 0 000-14.91zM12 7.025a4.975 4.975 0 110 9.95 4.975 4.975 0 010-9.95zM17.5 5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" />
-                    </svg>
-                </a>
-                <a href="https://wa.me/918999463721" class="hover:text-green-500 transition-colors" target="_blank" rel="noopener noreferrer">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M20.52 3.48A11.82 11.82 0 0012 0C5.37 0 .02 5.37.02 12a11.9 11.9 0 001.64 6.01L0 24l6.18-1.63A11.92 11.92 0 0012 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.18-3.48-8.52zM12 21.5c-1.95 0-3.83-.52-5.48-1.5l-.39-.23-3.67.97.98-3.58-.25-.37a9.52 9.52 0 01-1.52-5.3c0-5.27 4.27-9.54 9.54-9.54 2.55 0 4.95.99 6.75 2.79 1.8 1.8 2.79 4.2 2.79 6.75 0 5.27-4.27 9.54-9.54 9.54zm5.31-7.19c-.29-.15-1.71-.85-1.98-.95-.27-.1-.47-.15-.67.15-.2.29-.77.95-.95 1.14-.18.19-.35.21-.64.06-.29-.15-1.23-.45-2.34-1.44-.86-.76-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.6.13-.13.29-.35.43-.53.14-.18.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.36-.01-.55-.01s-.51.07-.77.36c-.26.29-1.01.98-1.01 2.39 0 1.41 1.03 2.77 1.18 2.96.15.19 2.03 3.11 4.92 4.37.69.3 1.23.48 1.65.62.69.22 1.32.19 1.81.12.55-.08 1.71-.7 1.95-1.38.24-.68.24-1.27.17-1.38-.07-.11-.26-.18-.55-.33z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </footer>
+	<section id="contact" class="py-16 md:py-24">
+		<div class="container animate-on-scroll">
+			<h2 class="section-title">Get In Touch</h2>
+			<div class="flex flex-col md:flex-row justify-center gap-8">
+				<div class="card p-8 md:p-12 w-full md:w-[48%]">
+					<form id="whatsappForm" class="contact-form">
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+							<div>
+								<label for="name" class="block text-gray-400 font-medium mb-1">Name</label>
+								<input type="text" id="name" name="name" class="w-full rounded-lg" required>
+							</div>
+							<div>
+								<label for="email" class="block text-gray-400 font-medium mb-1">Email</label>
+								<input type="email" id="email" name="email" class="w-full rounded-lg" required>
+							</div>
+						</div>
+						<div class="mb-6">
+							<label for="mobile" class="block text-gray-400 font-medium mb-1">Mobile Number</label>
+							<input type="tel" id="mobile" name="mobile" class="w-full rounded-lg" pattern="[0-9]{10}" maxlength="10" required>
+							<small class="text-gray-500">Enter 10-digit mobile number</small>
+						</div>
+						<div class="mb-6">
+							<label for="message" class="block text-gray-400 font-medium mb-1">Message</label>
+							<textarea id="message" name="message" rows="5" class="w-full rounded-lg" required></textarea>
+						</div>
+						<div class="text-center">
+							<button type="submit" class="bg-cyan-600 text-white font-bold py-3 px-10 rounded-full shadow-lg glowing-btn hover:bg-cyan-700 transition-all duration-300">
+								Send Message on WhatsApp
+							</button>
+						</div>
+					</form>
+				</div>
+				<div class="card p-8 md:p-12 w-full md:w-[48%]">
+					<h3 class="text-2xl font-bold text-center mb-4 text-white">My Location</h3>
+					<div class="relative w-full rounded-lg overflow-hidden">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15024.167382098674!2d78.58079535!3d20.72591635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd478b005112001%3A0x633d9ef906666113!2sWardha%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sus!4v1695420000000!5m2!1sen!2sus"
+							width="100%"
+							height="100%"
+							style="border:0; min-height: 500px;"
+							allowfullscreen=""
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							title="My Location on Google Maps">
+						</iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <div id="thankYouPopup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
-        <div class="bg-white p-6 rounded-2xl shadow-lg text-center max-w-sm w-full">
-            <h2 class="text-xl font-bold text-indigo-600 mb-2">✅ Thank You!</h2>
-            <p class="text-gray-700">Thank you for Valuable Response 😊</p>
-            <button onclick="closePopup()" class="mt-4 bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700">
-                Close
-            </button>
-        </div>
-    </div>
-    
-    <script>
-        document.getElementById("whatsappForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // stop default form submit
-        
-            let name = document.getElementById("name").value.trim();
-            let email = document.getElementById("email").value.trim();
-            let mobile = document.getElementById("mobile").value.trim();
-            let message = document.getElementById("message").value.trim();
-        
-            // Extra validation
-            if (!name || !email || !mobile || !message) {
-                showPopup("⚠️ Please fill all fields before submitting.");
-                return;
-            }
-        
-            if (!/^[0-9]{10}$/.test(mobile)) {
-                showPopup("⚠️ Please enter a valid 10-digit mobile number.");
-                return;
-            }
-        
-            // Create WhatsApp message
-            let whatsappMessage = `Hello, I am ${name} and want to contact you.%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Mobile:* ${mobile}%0A*Message:* ${message}`;
-        
-            // Redirect to WhatsApp chat
-            let phoneNumber = "918999463721"; // Your WhatsApp number (with country code)
-            let url = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-            window.open(url, "_blank"); // Open WhatsApp in new tab
-        
-            // Show thank you popup
-            showPopup("✅ Thank you for Your Valuable Response 😊");
-        
-            // Clear form
-            document.getElementById("whatsappForm").reset();
-        });
-        
-        // Show popup function
-        function showPopup(message) {
-            document.querySelector("#thankYouPopup p").textContent = message;
-            document.getElementById("thankYouPopup").classList.remove("hidden");
-        }
-        
-        // Close popup function
-        function closePopup() {
-            document.getElementById("thankYouPopup").classList.add("hidden");
-        }
+	<footer class="bg-gray-900 text-white py-8 rounded-t-3xl">
+		<div class="container text-center">
+			<p class="text-gray-400">© 2025 Samyak Naranje. All rights reserved.</p>
+			<div class="flex flex-col md:flex-row justify-center items-center space-x-0 md:space-x-4 mt-4 text-sm text-gray-400">
+				<p>Email: <a href="mailto:samyaknaranje@gmail.com" class="hover:underline text-cyan-400">samyaknaranje@gmail.com</a></p>
+				<p class="mt-2 md:mt-0">Mobile: +91 8999463721, 9028810377</p>
+			</div>
+			<div class="flex justify-center space-x-4 mt-4 text-2xl">
+				<a href="https://github.com/Samyak-Naranje" class="hover:text-cyan-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+					<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+						<path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.417 2.865 8.165 6.845 9.5.5.092.682-.217.682-.483 0-.237-.008-.88-.013-1.748-2.782.605-3.368-1.34-3.368-1.34-.455-1.156-1.11-1.46-1.11-1.46-.908-.62.069-.608.069-.608 1.004.072 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.832.092-.644.35-1.087.636-1.337-2.22-.253-4.555-1.113-4.555-4.954 0-1.091.39-1.984 1.03-2.682-.103-.253-.448-1.272.097-2.65 0 0 .84-.27 2.75 1.025.798-.222 1.637-.333 2.475-.337.838.004 1.677.115 2.475.337 1.909-1.296 2.747-1.025 2.747-1.025.546 1.378.202 2.397.097 2.65.64.698 1.028 1.591 1.028 2.682 0 3.85-2.339 4.697-4.568 4.945.359.309.678.92.678 1.855 0 1.337-.012 2.417-.012 2.745 0 .267.18.577.688.483C21.135 20.176 24 16.427 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd" />
+					</svg>
+				</a>
+				<a href="https://www.instagram.com/samyak.naranje/" class="hover:text-cyan-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile">
+					<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+						<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.068 1.645.068 4.854 0 3.205-.01 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.068-4.854.068-3.204 0-3.584-.01-4.849-.069-3.225-.148-4.77-1.664-4.919-4.919-.058-1.265-.068-1.644-.068-4.854 0-3.205.01-3.584.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.265-.058 1.644-.068 4.854-.068zM12 4.545a7.455 7.455 0 100 14.91 7.455 7.455 0 000-14.91zM12 7.025a4.975 4.975 0 110 9.95 4.975 4.975 0 010-9.95zM17.5 5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" />
+					</svg>
+				</a>
+				<a href="https://wa.me/918999463721" class="hover:text-green-500 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Profile">
+					<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+						<path d="M20.52 3.48A11.82 11.82 0 0012 0C5.37 0 .02 5.37.02 12a11.9 11.9 0 001.64 6.01L0 24l6.18-1.63A11.92 11.92 0 0012 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.18-3.48-8.52zM12 21.5c-1.95 0-3.83-.52-5.48-1.5l-.39-.23-3.67.97.98-3.58-.25-.37a9.52 9.52 0 01-1.52-5.3c0-5.27 4.27-9.54 9.54-9.54 2.55 0 4.95.99 6.75 2.79 1.8 1.8 2.79 4.2 2.79 6.75 0 5.27-4.27 9.54-9.54 9.54zm5.31-7.19c-.29-.15-1.71-.85-1.98-.95-.27-.1-.47-.15-.67.15-.2.29-.77.95-.95 1.14-.18.19-.35.21-.64.06-.29-.15-1.23-.45-2.34-1.44-.86-.76-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.60.13-.13.29-.35.43-.53.14-.18.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17-.01-.36-.01-.55-.01s-.51.07-.77.36c-.26.29-1.01.98-1.01 2.39 0 1.41 1.03 2.77 1.18 2.96.15.19 2.03 3.11 4.92 4.37.69.3 1.23.48 1.65.62.69.22 1.32.19 1.81.12.55-.08 1.71-.7 1.95-1.38.24-.68.24-1.27.17-1.38-.07-.11-.26-.18-.55-.33z"/>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</footer>
 
-        // Hero Section Stars
-        document.addEventListener('DOMContentLoaded', () => {
-            const starContainer = document.querySelector('.stars');
-            const numStars = 100;
+	<div id="thankYouPopup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+		<div class="bg-gray-800 p-6 rounded-2xl shadow-lg text-center max-w-sm w-full border border-gray-700">
+			<h2 class="text-xl font-bold text-cyan-400 mb-2">✅ Thank You!</h2>
+			<p class="text-gray-300">Your message has been sent successfully!</p>
+			<button onclick="closePopup()" class="mt-4 bg-cyan-600 text-white px-6 py-2 rounded-full hover:bg-cyan-700 glowing-btn">
+				Close
+			</button>
+		</div>
+	</div>
+	
+	<script>
+		document.getElementById("whatsappForm").addEventListener("submit", function(event) {
+			event.preventDefault();
+			
+			let name = document.getElementById("name").value.trim();
+			let email = document.getElementById("email").value.trim();
+			let mobile = document.getElementById("mobile").value.trim();
+			let message = document.getElementById("message").value.trim();
+			
+			if (!name || !email || !mobile || !message) {
+				showPopup("⚠️ Please fill all fields before submitting.", true);
+				return;
+			}
+			
+			if (!/^[0-9]{10}$/.test(mobile)) {
+				showPopup("⚠️ Please enter a valid 10-digit mobile number.", true);
+				return;
+			}
+			
+			let whatsappMessage = `Hello, I am ${name} and want to contact you.%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Mobile:* ${mobile}%0A*Message:* ${message}`;
+			
+			let phoneNumber = "918999463721";
+			let url = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+			window.open(url, "_blank");
+			
+			showPopup("✅ Thank you! Your message has been sent successfully.");
+			
+			document.getElementById("whatsappForm").reset();
+		});
+		
+		function showPopup(message, isError = false) {
+			const popupTitle = document.querySelector("#thankYouPopup h2");
+			const popupMessage = document.querySelector("#thankYouPopup p");
 
-            function createStar() {
-                const star = document.createElement('div');
-                star.className = 'star';
-                const size = Math.random() * 2 + 1;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.left = `${Math.random() * 100}%`;
-                star.style.top = `${Math.random() * 100}%`;
-                star.style.animationDelay = `${Math.random() * 1.5}s`;
-                return star;
-            }
+			if (isError) {
+				popupTitle.textContent = "⚠️ Error";
+				popupTitle.classList.add("text-red-500");
+				popupTitle.classList.remove("text-cyan-400");
+			} else {
+				popupTitle.textContent = "✅ Thank You!";
+				popupTitle.classList.add("text-cyan-400");
+				popupTitle.classList.remove("text-red-500");
+			}
 
-            for (let i = 0; i < numStars; i++) {
-                starContainer.appendChild(createStar());
-            }
-        });
-    </script>
+			popupMessage.textContent = message;
+			document.getElementById("thankYouPopup").classList.remove("hidden");
+		}
+		
+		function closePopup() {
+			document.getElementById("thankYouPopup").classList.add("hidden");
+		}
+
+		// JavaScript for scroll animations
+		const observerOptions = {
+			root: null,
+			rootMargin: '0px',
+			threshold: 0.2
+		};
+
+		const observer = new IntersectionObserver((entries, observer) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('is-visible');
+					observer.unobserve(entry.target);
+				}
+			});
+		}, observerOptions);
+
+		document.querySelectorAll('.animate-on-scroll').forEach(section => {
+			observer.observe(section);
+		});
+
+		// Star animation generation
+		function createStars() {
+			const starsContainer = document.querySelector('.stars');
+			const starCount = 100; // Number of stars
+			const maxDimension = Math.max(window.innerWidth, window.innerHeight);
+			
+			for (let i = 0; i < starCount; i++) {
+				const star = document.createElement('div');
+				star.className = 'star';
+				
+				// Random position
+				star.style.top = `${Math.random() * 100}%`;
+				star.style.left = `${Math.random() * 100}%`;
+				
+				// Random size
+				const size = Math.random() * 2 + 1; // 1px to 3px
+				star.style.width = `${size}px`;
+				star.style.height = `${size}px`;
+				
+				// Random animation delay and faster duration
+				star.style.animationDelay = `${Math.random() * 2}s`;
+				star.style.animationDuration = `${Math.random() * 1 + 0.5}s`; // Faster: 0.5s to 1.5s
+				
+				starsContainer.appendChild(star);
+			}
+		}
+
+		createStars();
+	</script>
 </body>
 </html>
